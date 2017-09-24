@@ -10,7 +10,7 @@
     <br>
 
     <div class="container">
-        <div class="row" style="max-width: 96%">
+        <div class="row" style="max-width: 100%">
             <div class="col-md-2" style="float: right; margin-right: -110px">
                 <select class="form-control" id="month">
                   <option selected="" disabled="true">Pick One</option>
@@ -48,7 +48,7 @@
             <div id="url" style="height: 500px;"></div>
         </div>
 
-        <div class="col-md-5" style="">
+        <div class="col-md-5" style="width: 625px">
             <div id="http_host" style="height: 500px;"></div>
         </div>
     </div>
@@ -58,7 +58,8 @@
 @section('footer')
 
 <br>
-    <form method="post" action="{{ url('/') }}">
+    <form method="post" action="">
+      {{ csrf_field() }}
         <button type="submit" class="btn btn-primary btn-lg btn-block">Send Mail</button>
     </form>
 
