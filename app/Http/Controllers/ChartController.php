@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Logs;
 use DB;
+use Mail;
 
 class ChartController extends Controller
 {
@@ -125,7 +126,7 @@ class ChartController extends Controller
         //                 ->get();
 
         // foreach ($user_agent as $key => $value) {
-        //     $value->total = count(Logs::where('user_agent', $value->user_agent)->get());
+        //     $value->total = count `(Logs::where('user_agent', $value->user_agent)->get());
         // }
 
         // $result[] = ['User Agent', 'Total'];
@@ -174,5 +175,20 @@ class ChartController extends Controller
         // }
 
         return view('welcome')->with('user_agent', json_encode($result))->with('url', json_encode($result2))->with('http_host', json_encode($result3))->with('month', $month);
+    }
+
+    public function send() {
+    	// $renderedData = view('welcome')->render();
+    	// $data = array('email' => 'fkrfdllh@gmail.com', 'first_name' => 'Test', 
+     //    'from' => 'fkrfdllh@gmail.com', 'from_name' => 'Fikri');
+
+    	// Mail::send('welcome', $data, function($message) use($data) {
+    	// 	$message->to($data['email'])
+    	// 	->from($data['form'], $data['from_name'])
+    	// 	->subject($data['first_name'])
+    	// 	->attactData($renderedData, 'welcome.blade.php');
+    	// });
+
+    	// return view('welcome')->with('renderedData', $renderedData)->with('data', $data);
     }
 }

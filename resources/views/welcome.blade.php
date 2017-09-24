@@ -10,7 +10,7 @@
     <br>
 
     <div class="container">
-        <div class="row" style="max-width: 100%">
+        <div class="row" style="max-width: 96%">
             <div class="col-md-2" style="float: right; margin-right: -110px">
                 <select class="form-control" id="month">
                   <option selected="" disabled="true">Pick One</option>
@@ -44,11 +44,11 @@
     <br>
 
     <div class="row">
-        <div class="col-md-7 mr-auto" style="margin-left: 25px; margin-right: 67px">
+        <div class="col-md-6 mr-auto" style="margin-left: 25px; margin-right: 15px">
             <div id="url" style="height: 500px;"></div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-5" style="">
             <div id="http_host" style="height: 500px;"></div>
         </div>
     </div>
@@ -58,7 +58,9 @@
 @section('footer')
 
 <br>
-  <button type="button" class="btn btn-primary btn-lg btn-block">Send Mail</button>
+    <form method="post" action="{{ url('/') }}">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Mail</button>
+    </form>
 
     <script type="text/javascript">
     @if ($month)

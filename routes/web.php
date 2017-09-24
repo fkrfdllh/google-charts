@@ -13,3 +13,5 @@
 
 Route::get('/', 'ChartController@index');
 Route::get('/{month}', 'ChartController@index');
+
+Route::post('/', 'ChartController@send');
