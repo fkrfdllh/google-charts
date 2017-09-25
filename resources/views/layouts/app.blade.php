@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Report Traffic X Company</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -67,6 +68,8 @@
 		google.visualization.events.addListener(chart1, 'ready', function() {
 			chart1.innerHTML = '<img src="' + chart1.getImageURI() + '">';
 			console.log(chart1.innerHTML);
+
+			document.getElementById("base64").innerHTML = chart1.getImageURI();
 		});
 
 		google.visualization.events.addListener(chart2, 'ready', function() {
@@ -95,4 +98,11 @@
 	@yield('footer')
 
 </body>
+<script type="text/javascript">
+	$.ajaxSetup({
+	    headers: {
+	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	    }
+	});
+</script>
 </html>

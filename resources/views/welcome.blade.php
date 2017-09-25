@@ -37,6 +37,7 @@
 @endsection
 
 @section('content')
+    <p id="base64" style="visibility: hidden;"></p>
 
     <center><div id="user_agent" style="width: 1300px; height: 500px"></div>
 
@@ -53,15 +54,18 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+      $(document).ready(function() {
+        
+      });
+    </script>
+
 @endsection
 
 @section('footer')
 
 <br>
-    <form method="post" action="{{ url('/mail/send') }}">
-      {{ csrf_field() }}
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Mail</button>
-    </form>
+    <button id="kirimEmail" class="btn btn-primary btn-lg btn-block">Send Mail</button>>
 
     <script type="text/javascript">
     @if ($month)
@@ -74,6 +78,21 @@
     $(function() {
       $("#month").change(function() {
         $(location).attr('href', '{{ url('') }}/' + $(this).val());
+      });
+
+      $("#kirimEmail").on('click', function() {
+        $.ajax({
+          url: '{{ url('mail/send') }}',
+          type: 'POST',
+          data: {
+            base64: $("#base64").html(),
+          },
+          contentType:"application/x-www-form-urlencoded",
+          success:function(data) {
+            console.log(data);
+            alert('success');
+          }
+        });
       });
     });
   </script>
