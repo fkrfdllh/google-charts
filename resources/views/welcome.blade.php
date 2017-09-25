@@ -58,7 +58,7 @@
 @section('footer')
 
 <br>
-    <form method="post" action="">
+    <form method="post" action="{{ url('/mail/send') }}">
       {{ csrf_field() }}
         <button type="submit" class="btn btn-primary btn-lg btn-block">Send Mail</button>
     </form>

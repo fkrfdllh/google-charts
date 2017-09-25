@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'MailController@index');
+Route::get('/', 'ChartController@index');
 Route::get('/{month}', 'ChartController@index');
 
-// Route::get(/)
+
+Route::get('/mail', 'MailController@index');
+
+Route::post('/mail/send', 'MailController@send');
